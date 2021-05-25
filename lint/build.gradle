@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'kotlin'
+}
+dependencies {
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.4.21"
+    compileOnly "com.android.tools.lint:lint-api:27.2.1"
+    compileOnly "com.android.tools.lint:lint-checks:27.2.1"
+}
+
+
+//lintOptions {
+//    abortOnError false
+//}
+jar {
+    manifest {
+        attributes("Lint-Registry-v2": "com.example.lint.IssueRegister")
+    }
+}
