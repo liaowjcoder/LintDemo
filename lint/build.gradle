@@ -1,19 +1,14 @@
-plugins {
-    id 'java'
-    id 'kotlin'
-}
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
 dependencies {
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.4.21"
-    compileOnly "com.android.tools.lint:lint-api:27.0.1"
-    compileOnly "com.android.tools.lint:lint-checks:27.0.1"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compileOnly "com.android.tools.lint:lint-api:26.5.1"
+    compileOnly "com.android.tools.lint:lint-checks:26.5.1"
 }
 
 
-//lintOptions {
-//    abortOnError false
-//}
 jar {
     manifest {
-        attributes("Lint-Registry-v2": "com.example.lint.IssueRegister")
+        attributes("Lint-Registry-V2": "com.example.lint.IssueRegister")
     }
 }

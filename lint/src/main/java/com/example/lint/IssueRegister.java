@@ -20,6 +20,7 @@ public class IssueRegister extends IssueRegistry {
         ArrayList<Issue> issues = new ArrayList<>();
         issues.add(ParseColorDetector.ISSUE);
         issues.add(ChineseCheckDetector.ISSUE);
+        issues.add(AbsModuleIntentDetector.ISSUE);
         return issues;
     }
 
