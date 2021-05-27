@@ -6,7 +6,7 @@ import android.util.Log;
 class A {
     public static void main(String[] args) {
         Log.d("a", "");
-//        Color.parseColor("000");
+        Color.parseColor("000");
         int a = 0;
         switch (a) {
             case 0:

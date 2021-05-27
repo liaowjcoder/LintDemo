@@ -53,11 +53,17 @@ public class ParseColorDetector extends Detector implements Detector.UastScanner
         if (isWrappedByTryCatch(node, context)) {
             return;
         }
+        System.out.println("ParseColorDetector error");
         reportError(context, node);
     }
 
     private boolean isConstColor(UCallExpression node) {
-        return node.getValueArguments().get(0).evaluate().toString().startsWith("#");
+        try {
+            return node.getValueArguments().get(0).evaluate().toString().startsWith("#");
+        }catch (Exception e){
+//            e.printStackTrace();
+            return true;
+        }
     }
 
     private boolean isWrappedByTryCatch(UCallExpression node, JavaContext context) {
@@ -73,8 +79,7 @@ public class ParseColorDetector extends Detector implements Detector.UastScanner
     }
 
     private void reportError(JavaContext context, UCallExpression node) {
-//        context.report(ISSUE, node, context.getCallLocation(node, false, false)
-//                , "Color.parseColor 解析后端下发的值可能导致 crash，请 try catch");
-        context.report(ISSUE, node, context.getLocation(node), "请勿直接调用222223444an");
+        context.report(ISSUE, node, context.getLocation(node), "调用Color.parse建议 try-catch，色值不合规导致避免crash "+
+                context.getLocation(node).getFile().getAbsolutePath());
     }
 }

@@ -1,7 +1,7 @@
 include ':lib'
 include ':lint-lib'
-include ':mylibrary'
-include ':app:mylibrary'
+//include ':mylibrary'
+//include ':app:mylibrary'
 include ':lint'
 include ':app'
 rootProject.name = "Lint"

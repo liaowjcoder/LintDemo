@@ -3,6 +3,7 @@ package com.example.lint;
 import com.android.tools.lint.client.api.IssueRegistry;
 import com.android.tools.lint.detector.api.ApiKt;
 import com.android.tools.lint.detector.api.Issue;
+import com.google.common.annotations.Beta;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -16,9 +17,14 @@ public class IssueRegister extends IssueRegistry {
     @NotNull
     @Override
     public List<Issue> getIssues() {
-        ArrayList issues = new ArrayList<Issue>();
+        ArrayList<Issue> issues = new ArrayList<>();
         issues.add(ParseColorDetector.ISSUE);
         issues.add(ChineseCheckDetector.ISSUE);
         return issues;
+    }
+
+    @Override
+    public int getApi() {
+        return ApiKt.CURRENT_API;
     }
 }

@@ -9,16 +9,13 @@
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$USER_HOME$/Library/Android/gradle/gradle-3.5" />
-        <option name="gradleJvm" value="JDK" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app/mylibrary" />
             <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/lint" />
             <option value="$PROJECT_DIR$/lint-lib" />
-            <option value="$PROJECT_DIR$/mylibrary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
