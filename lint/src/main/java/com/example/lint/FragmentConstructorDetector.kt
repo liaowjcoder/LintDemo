@@ -30,7 +30,6 @@ class FragmentConstructorDetector : Detector(), Detector.UastScanner {
 
     override fun visitClass(context: JavaContext, declaration: UClass) {
         super.visitClass(context, declaration)
-        println("visitClass:${context.file.absolutePath} ${this}")
         val constructors = declaration.constructors
         var hasEmptyConstructor = false
         constructors.forEach { constructor ->
@@ -38,6 +37,7 @@ class FragmentConstructorDetector : Detector(), Detector.UastScanner {
                 hasEmptyConstructor = true
             }
             if (!hasEmptyConstructor) {
+                println("FragmentConstructorDetector:visitClass:${context.file.absolutePath}")
                 val location = context.getNameLocation(constructor)
                 context.report(
                     ISSUE, constructor, location, "${DESC} in ${location.file.absolutePath}"

@@ -22,6 +22,7 @@ public class IssueRegister extends IssueRegistry {
         issues.add(ChineseCheckDetector.ISSUE);
         issues.add(AbsModuleIntentDetector.ISSUE);
         issues.add(FragmentConstructorDetector.ISSUE);
+        issues.add(LogDetector.ISSUE);
         return issues;
     }
 
