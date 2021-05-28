@@ -21,6 +21,7 @@ public class IssueRegister extends IssueRegistry {
         issues.add(ParseColorDetector.ISSUE);
         issues.add(ChineseCheckDetector.ISSUE);
         issues.add(AbsModuleIntentDetector.ISSUE);
+        issues.add(FragmentConstructorDetector.ISSUE);
         return issues;
     }
 
