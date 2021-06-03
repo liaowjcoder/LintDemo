@@ -3,6 +3,7 @@ package com.example.lint
 import com.android.SdkConstants
 import com.android.tools.lint.detector.api.*
 import com.android.tools.lint.detector.api.Category.Companion.CORRECTNESS
+import com.android.utils.text
 import org.w3c.dom.Element
 import java.io.File
 import java.util.*
@@ -30,25 +31,17 @@ import kotlin.random.Random
                     //println("过滤掉日语的检测 ${location.file.absolutePath}")
                     return
                 }
-
                 val hasNameAttr = element.hasAttribute("name")
                 if (hasNameAttr) {
-                    val textContent = element.textContent
+                    val textContent = element.firstChild.nodeValue
+                    println("textContent is $textContent element tagName is ${element.tagName}")
                     if (checkHasChineseValue(textContent)) {
-                        val nameAttr = element.getAttributeNode("name")
-                        println("遍历到的文案：${nameAttr.name}=${nameAttr.value}")
-                        println(
-                            "ChineseCheckDetector 有问题的文案 $textContent \n ${
-                                context.getLocation(
-                                    element
-                                ).file.absolutePath
-                            }"
-                        )
+                        println("ChineseCheckDetector 有问题的文案 $textContent \n ${context.getLocation(element).file.absolutePath}")
                         context.report(
                             ISSUE,
                             element,
                             context.getLocation(element),
-                            DESC+"${nameAttr.name}=${textContent}"
+                            "$DESC>> $textContent"
                         )
                     }
                 }
@@ -78,7 +71,10 @@ import kotlin.random.Random
             IMPLEMENTATION
         )
 
-        private fun checkHasChineseValue(textContent: String): Boolean {
+        private fun checkHasChineseValue(textContent: String?): Boolean {
+            if(textContent.isNullOrEmpty()){
+                return false
+            }
             val regex = "[\\u4e00-\\u9fa5]".toRegex()
             val ret = regex.find(textContent)?.value
             return ret != null

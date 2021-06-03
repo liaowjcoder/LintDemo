@@ -1,3 +1,6 @@
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -31,11 +34,31 @@ android {
         jvmTarget = '1.8'
     }
     lintOptions {
-        abortOnError true
+//        abortOnError true
+//        String lintSuffix = getLintSuffix()
+//        String lintDir = getLintDirName()
+//        xmlOutput file("report/"+lintDir+"/LintXmlReport_"+lintSuffix+".xml")
+//        htmlOutput file("report/"+lintDir+"/LintHtmlReport_"+lintSuffix+".html")
+
+        xmlOutput file("report/LintXmlReport.xml")
+        htmlOutput file("report/LintHtmlReport.html")
     }
 
 
 }
+//String getLintDirName(){
+//    DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd");//HH:mm:ss
+//    Date date = new Date();
+//    System.out.println(dateFormat.format(date))
+//    return dateFormat.format(date)
+//}
+//
+//String getLintSuffix(){
+//    DateFormat dateFormat = new SimpleDateFormat("HH_mm_ss");
+//    Date date = new Date();
+//    System.out.println(dateFormat.format(date))
+//    return dateFormat.format(date)
+//}
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

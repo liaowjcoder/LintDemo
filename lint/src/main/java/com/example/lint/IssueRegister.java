@@ -18,11 +18,12 @@ public class IssueRegister extends IssueRegistry {
     @Override
     public List<Issue> getIssues() {
         ArrayList<Issue> issues = new ArrayList<>();
-        issues.add(ParseColorDetector.ISSUE);
+//        issues.add(ParseColorDetector.ISSUE);
         issues.add(ChineseCheckDetector.ISSUE);
-        issues.add(AbsModuleIntentDetector.ISSUE);
-        issues.add(FragmentConstructorDetector.ISSUE);
-        issues.add(LogDetector.ISSUE);
+//        issues.add(AbsModuleIntentDetector.ISSUE);
+//        issues.add(FragmentConstructorDetector.ISSUE);
+//        issues.add(LogDetector.ISSUE);
+//        issues.add(FixOrientationTransDetector.ISSUE);
         return issues;
     }
 

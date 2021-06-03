@@ -15,6 +15,6 @@ class MainActivity : AppCompatActivity() {
 //        Color.parseColor("00000")
 
 
-        Log.d("aaa","aa")
+//        Log.d("aaa","aa")
     }
 }

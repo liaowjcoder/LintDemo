@@ -19,18 +19,18 @@ class AbsModuleIntentDetector : Detector(), Detector.UastScanner {
             DESC,
             DESC,
             Category.CORRECTNESS,
-            10, Severity.FATAL,
+            10, Severity.WARNING,
             IMPLEMENTATION
         )
     }
 
     override fun applicableSuperClasses(): List<String>? {
-        return listOf("com.example.lint.AbsModuleIntent")
+        return listOf("com.yibasan.squeak.base.base.router.module.AbsModuleIntent")
     }
 
     override fun visitClass(context: JavaContext, declaration: UClass) {
         super.visitClass(context, declaration)
-        println("visitClass:${context.file.absolutePath} ${this}")
+        println("AbsModuleIntentDetector visitClass:${context.file.absolutePath}  ")
         val constructors = declaration.constructors
         var hasEmptyConstructor = false
         constructors.forEach { constructor ->
@@ -39,6 +39,7 @@ class AbsModuleIntentDetector : Detector(), Detector.UastScanner {
             }
             if (!hasEmptyConstructor) {
                 val location = context.getNameLocation(constructor)
+                println("AbsModuleIntentDetector visitClass :${context.file.absolutePath}  ")
                 context.report(
                     ISSUE, constructor, location, "${DESC} in ${location.file.absolutePath}"
                 )
